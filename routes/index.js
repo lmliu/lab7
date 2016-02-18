@@ -5,13 +5,16 @@ var projects = require('../projects.json');
  */
 
 
-function initializePage () {
-$('.likeBtn').click(function(){console.log("eggs");});
-}
-
 exports.view = function(req, res){
-	projects["grid"] = false;
-  	res.render('index', projects);
+	var random_num = Math.random();
+	console.log(random_num);
+
+	if (random_num >= 0) {
+	  projects['grid'] = false;
+	  res.render('index', projects);
+	} else {
+	  res.redirect('/grid');
+	}
  
 };
 
